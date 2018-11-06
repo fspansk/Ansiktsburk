@@ -12,27 +12,39 @@ namespace Ansiktsburk.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var p = new Post {
+                author = "Kågge",
+                timestamp = DateTime.Now,
+                body = "Hej världen"
+            };
+            
+            return View(p);
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
+        [HttpPost]
+        public ActionResult Report(Post post)
         {
             return View();
         }
+
+        //public IActionResult About()
+        //{
+        //    ViewData["Message"] = "Your application description page.";
+
+        //    return View();
+        //}
+
+        //public IActionResult Contact()
+        //{
+        //    ViewData["Message"] = "Your contact page.";
+
+        //    return View();
+        //}
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
