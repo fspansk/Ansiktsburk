@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Ansiktsburk.Models.Post>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    @foreach (Post post in Model)
+    {
+        <li>@post.Author</li>
+    }
+</ul>

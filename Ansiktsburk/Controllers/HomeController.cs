@@ -13,9 +13,9 @@ namespace Ansiktsburk.Controllers
         public IActionResult Index()
         {
             var p = new Post {
-                author = "Kågge",
-                timestamp = DateTime.Now,
-                body = "Hej världen"
+                Author = "Kågge",
+                Timestamp = DateTime.Now,
+                Body = "Hej världen"
             };
             
             return View(p);
@@ -26,6 +26,11 @@ namespace Ansiktsburk.Controllers
         {
             return View();
         }
+
+        //public ActionResult Create()
+        //{
+        //    var 
+        //}
 
         //public IActionResult About()
         //{
