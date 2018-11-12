@@ -26,7 +26,7 @@ namespace Ansiktsburk
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PostDbContext>(option => option.UseSqlServer(@"Data Source=CLAMON-F187WNW; Initial Catalog=MyNewProject; Integrated Security=true"));
+            services.AddDbContext<PostDbContext>(option => option.UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDB; Database=ansiktsburk; trusted_connection=true; multipleActiveResultSets=true"));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
