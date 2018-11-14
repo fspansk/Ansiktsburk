@@ -16,6 +16,7 @@ namespace Ansiktsburk.Models
 
         [Required]
         public string Author { get; set; }
+
         public DateTime Timestamp { get; set; }
     }
 }

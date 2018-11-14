@@ -5,20 +5,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Ansiktsburk.Models;
+using Ansiktsburk.DAL;
 
 namespace Ansiktsburk.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var p = new Post {
-                Author = "Kågge",
-                Timestamp = DateTime.Now,
-                Body = "Hej världen"
-            };
-            
-            return View(p);
+            return View(_context.Posts);
         }
 
         [HttpPost]

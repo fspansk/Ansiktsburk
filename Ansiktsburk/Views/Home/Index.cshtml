@@ -1,26 +1,19 @@
-﻿@model Ansiktsburk.Models.Post
+﻿@model IEnumerable<Ansiktsburk.Models.Post>
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div>
-    <form>
-        <label for="Author">
-            Ditt namn
-        </label>
-        <input type="text" name="Author" />
-        <label for="Body">
-            Skriv här
-        </label>
-        <textarea name="Body"></textarea>
-        <input type="hidden" name="Body" value="@DateTime.Now" />
-        <input type="submit" name="Submit" asp-controller="Home" asp-action="Log"/>
-    </form>
-
-    <div>
-        @Model.Body
-    </div>
-    <div>
-        @Model.Author, @Model.Timestamp
-    </div>
+    @foreach(Post post in Model)
+    {
+        <div>
+            @post.Body
+        </div>
+        <div>
+            @post.Author
+        </div>
+        <div>
+            @post.Timestamp
+        </div>
+    }
 </div>

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ansiktsburk.Migrations
 {
-    [DbContext(typeof(PostDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20181108100509_InitialModel")]
     partial class InitialModel
     {

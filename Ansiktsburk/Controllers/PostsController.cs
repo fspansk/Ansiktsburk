@@ -11,9 +11,9 @@ namespace Ansiktsburk.Controllers
 {
     public class PostsController : Controller
     {
-        private readonly PostDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public PostsController(PostDbContext context)
+        public PostsController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -21,10 +21,10 @@ namespace Ansiktsburk.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Posts);
+            return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Create ()
+        public IActionResult Create()
         {
             return View();
         }
@@ -43,7 +43,7 @@ namespace Ansiktsburk.Controllers
             _context.Posts.Add(newPost);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Posts");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
