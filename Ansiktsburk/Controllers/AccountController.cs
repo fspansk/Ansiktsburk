@@ -2,6 +2,7 @@
 using Ansiktsburk.Models;
 using Microsoft.AspNetCore.Mvc;
 using Ansiktsburk.ViewModels;
+using System.Linq;
 
 namespace Ansiktsburk.Controllers
 {
@@ -31,8 +32,28 @@ namespace Ansiktsburk.Controllers
             _context.Users.Add(newUser);
             _context.SaveChanges();
 
-            //return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
+
+        }
+
+        public IActionResult Login()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+            var existingUser = _context.Users.SingleOrDefault(x => x.Username == user.Username);
+
+
+            if (existingUser != null && existingUser.Password == user.Password)
+            {
+                return Content(existingUser.Username);
+            }
+            else
+                return View(user);
+            
         }
     }
 }
